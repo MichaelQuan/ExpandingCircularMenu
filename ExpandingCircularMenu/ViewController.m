@@ -52,12 +52,12 @@
 
 - (void)didStartHoveringOverView:(UIView*)view withIndex:(NSInteger)index
 {
-    
+    NSLog(@"started hovering over %i", index);
 }
 
 - (void)didStopHoveringOverView:(UIView*)view withIndex:(NSInteger)index
 {
-    
+    NSLog(@"ended hovering over %i", index);
 }
 
 - (void)didEndGestureHoveringOverView:(UIView*)view withIndex:(NSInteger)index
