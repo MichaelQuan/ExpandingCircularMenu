@@ -15,5 +15,6 @@
 - (void)didStopHoveringOverView:(UIView*)view withIndex:(NSInteger)index;
 - (void)didEndGestureHoveringOverView:(UIView*)view withIndex:(NSInteger)index;
 - (void)didEndGestureHoveringOverNoView;
+- (void)gestureCancelled;
 
 @end

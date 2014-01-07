@@ -14,5 +14,6 @@
 @property (nonatomic, weak) id<ExpandingCircularMenuDelegate> delegate;
 
 - (instancetype)initForView:(UIView*)view WithExpandingCircularLayout:(ExpandingCircularMenuLayout*)layout;
-- (void)pan:(UIGestureRecognizer*)gesture;
+//- (void)pan:(UIGestureRecognizer*)gesture;
+- (void)longPress:(UILongPressGestureRecognizer*)gesture;
 @end
