@@ -35,14 +35,10 @@
     }
     layout.menuViews = views;
     layout.translation = 100;
-    layout.hoveredTranslation = 105;
-    layout.hoveredScale = 1.2;
     layout.angleSpread = M_PI * 0.333;
 
     menu = [[ExpandingCircularMenu alloc] initForView:self.view WithExpandingCircularLayout:layout];
     menu.delegate = self;
-//    UIGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:menu action:@selector(pan:)];
-//    [self.view addGestureRecognizer:pan];
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:menu action:@selector(longPress:)];
     [self.view addGestureRecognizer:longPress];
 }
@@ -52,22 +48,22 @@
 
 - (void)didStartHoveringOverView:(UIView*)view withIndex:(NSInteger)index
 {
-    NSLog(@"started hovering over %i", index);
+//    NSLog(@"started hovering over %i", index);
 }
 
 - (void)didStopHoveringOverView:(UIView*)view withIndex:(NSInteger)index
 {
-    NSLog(@"ended hovering over %i", index);
+//    NSLog(@"ended hovering over %i", index);
 }
 
 - (void)didEndGestureHoveringOverView:(UIView*)view withIndex:(NSInteger)index
 {
-//    NSLog(@"ended on %i", index );
+    NSLog(@"ended on %i", index );
 }
 
 - (void)didEndGestureHoveringOverNoView
 {
-//    NSLog(@"ended over nothing");
+    NSLog(@"ended over nothing");
 }
 
 @end

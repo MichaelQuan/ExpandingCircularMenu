@@ -40,9 +40,4 @@
  */
 - (void)didEndGestureHoveringOverNoView;
 
-/**
- * Tells the delegate that the gesture was canceled
- */
-- (void)gestureCancelled;
-
 @end

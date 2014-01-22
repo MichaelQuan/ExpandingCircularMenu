@@ -16,8 +16,6 @@
     if(self) {
         _angleSpread = M_PI_4;
         _translation = 100;
-        _hoveredTranslation = 110;
-        _hoveredScale = 1.3;
         _menuViews = [NSArray new];
         for (int i = 0; i < 5; i++) {
             UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];

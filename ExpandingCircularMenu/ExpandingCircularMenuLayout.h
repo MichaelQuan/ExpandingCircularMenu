@@ -25,14 +25,4 @@
  */
 @property (nonatomic) CGFloat translation;
 
-/**
- * the amount the view being hovered over gets spread out from the center point
- */
-@property (nonatomic) CGFloat hoveredTranslation;
-
-/**
- * the scale factor on the view being hovered over
- */
-@property (nonatomic) CGFloat hoveredScale;
-
 @end
