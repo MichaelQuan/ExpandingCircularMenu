@@ -82,12 +82,16 @@
         NSInteger indexHovered = [self.layout.menuViews count] - 1 - round(([self.layout.menuViews count] - 1) * 0.5 + deltaAngle / differenceAngle);
         
         if(indexHovered != hoveredIndex) {
-            if([self.delegate respondsToSelector:@selector(didStopHoveringOverView:withIndex:)] && hoveredIndex != INVALID_HOVERED_INDEX) {
-                [self.delegate didStopHoveringOverView:self.layout.menuViews[hoveredIndex] withIndex:hoveredIndex];
+            if([self.delegate respondsToSelector:@selector(didStopHoveringOverView:withIndex:andDirection:)] && hoveredIndex != INVALID_HOVERED_INDEX) {
+                [self.delegate didStopHoveringOverView:self.layout.menuViews[hoveredIndex]
+                                             withIndex:hoveredIndex
+                                          andDirection:CGPointApplyAffineTransform(baseVector, CGAffineTransformMakeRotation([self relativeAngleFactor:hoveredIndex] * self.layout.angleSpread))];
             }
             if(indexHovered >= 0 && indexHovered < [self.layout.menuViews count]) {
-                if([self.delegate respondsToSelector:@selector(didStartHoveringOverView:withIndex:)]) {
-                    [self.delegate didStartHoveringOverView:self.layout.menuViews[indexHovered] withIndex:indexHovered];
+                if([self.delegate respondsToSelector:@selector(didStartHoveringOverView:withIndex:andDirection:)]) {
+                    [self.delegate didStartHoveringOverView:self.layout.menuViews[indexHovered]
+                                                  withIndex:indexHovered
+                                               andDirection:CGPointApplyAffineTransform(baseVector, CGAffineTransformMakeRotation([self relativeAngleFactor:hoveredIndex] * self.layout.angleSpread))];
                 }
                 hoveredIndex = indexHovered;
             } else {

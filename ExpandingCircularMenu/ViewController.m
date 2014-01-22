@@ -19,6 +19,7 @@
 @implementation ViewController
 
 #define size 20
+#define HOVERED_SCALE 10
 
 - (void)viewDidLoad
 {
@@ -46,14 +47,24 @@
 #pragma mark -
 #pragma mark ExpandingCircularMenuDelegate
 
-- (void)didStartHoveringOverView:(UIView*)view withIndex:(NSInteger)index
+- (void)didStartHoveringOverView:(UIView*)view withIndex:(NSInteger)index andDirection:(CGPoint)vector
 {
 //    NSLog(@"started hovering over %i", index);
+    [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        view.transform = CGAffineTransformMakeTranslation(vector.x * HOVERED_SCALE, vector.y * HOVERED_SCALE);
+    }completion:^(BOOL finished) {
+        
+    }];
 }
 
-- (void)didStopHoveringOverView:(UIView*)view withIndex:(NSInteger)index
+- (void)didStopHoveringOverView:(UIView*)view withIndex:(NSInteger)index andDirection:(CGPoint)vector
 {
 //    NSLog(@"ended hovering over %i", index);
+    [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        view.transform = CGAffineTransformIdentity;
+    }completion:^(BOOL finished) {
+        
+    }];
 }
 
 - (void)didEndGestureHoveringOverView:(UIView*)view withIndex:(NSInteger)index
